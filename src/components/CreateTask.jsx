@@ -9,7 +9,7 @@ const CreateTask = () => {
   const { tasks, setTasks } = useTaskContext();
 
   // Inisialisasi tasks sebagai array kosong jika tidak diberikan prop
-  if (!tasks) tasks = [];
+  // if (!tasks) tasks = [];
 
   const [task, setTask] = useState({
     id: "",
