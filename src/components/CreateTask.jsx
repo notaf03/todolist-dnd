@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from 'react-hot-toast';
+import { useTaskContext } from "../context/TaskContext";
 
-const CreateTask = ({ tasks, setTasks }) => {
+const CreateTask = () => {
+
+  const { tasks, setTasks } = useTaskContext();
 
   // Inisialisasi tasks sebagai array kosong jika tidak diberikan prop
   if (!tasks) tasks = [];
@@ -48,7 +51,7 @@ const CreateTask = ({ tasks, setTasks }) => {
           setTask({ ...task, id: uuidv4(), name: e.target.value })
         }
       />
-      <button className="h-12 rounded-md bg-cyan-500 px-4 text-white">
+      <button className="font-primary h-12 rounded-md bg-cyan-500 px-4 text-white">
         Create
       </button>
     </form>

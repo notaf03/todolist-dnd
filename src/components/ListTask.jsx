@@ -2,8 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import toast from "react-hot-toast";
+import { useTaskContext } from "../context/TaskContext";
 
-const ListTask = ({ tasks, setTasks }) => {
+const ListTask = () => {
+
+  const { tasks, setTasks } = useTaskContext();
+
   const [todos, setTodos] = useState([]);
   const [inProgress, setInProgress] = useState([]);
   const [closed, setClosed] = useState([]);
@@ -94,7 +98,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
   };
 
   return (
-    <div ref={drop} className={`w-64 rounded-md p-2 ${isOver ? "bg-slate-300" : ""}`}>
+    <div ref={drop} className={`font-primary w-64 rounded-md p-2 ${isOver ? "bg-slate-300" : ""}`}>
       <Header text={text} bg={bg} count={taskToMap.length} />
       {taskToMap.length > 0 &&
         taskToMap.map((task) => (
